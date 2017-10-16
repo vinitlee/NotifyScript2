@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Notify Scripter</string>
+    <string name="service_name">Vs Notification Listener</string>
+</resources>

@@ -19,16 +19,10 @@ import android.text.TextUtils
 import android.content.ComponentName
 import android.provider.Settings
 import android.provider.Settings.Secure
-
-
+import android.util.Log
 
 
 class MainActivity : AppCompatActivity() {
-
-    lateinit var nameText: TextView
-    lateinit var titleText: TextView
-    lateinit var bodyText: TextView
-    lateinit var outputText: TextView
 
     private val ENABLED_NOTIFICATION_LISTENERS = "enabled_notification_listeners"
     private val ACTION_NOTIFICATION_LISTENER_SETTINGS = "android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS"
@@ -42,13 +36,10 @@ class MainActivity : AppCompatActivity() {
             enableNotificationListenerAlertDialog.show()
         }
 
-        nameText = findViewById(R.id.nameText)
-        titleText = findViewById(R.id.titleText)
-        bodyText = findViewById(R.id.bodyText)
+        findViewById<Button>(R.id.emitButton).setOnClickListener { sampleNotification() }
 
-        outputText = findViewById(R.id.outputText)
-
-        findViewById<Button>(R.id.button).setOnClickListener { sampleNotification() }
+        var test = BlankFragment()
+        Log.i("MAIN",test.toString())
     }
 
     private fun sampleNotification() {

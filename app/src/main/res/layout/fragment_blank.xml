@@ -1,0 +1,19 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="24dp"
+    tools:context="com.vinitlee.bose.notifyscript2.BlankFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <EditText
+        style="@style/Rubber"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:hint="Value"
+        android:inputType="text"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:text="@string/hello_blank_fragment" />
+
+</FrameLayout>

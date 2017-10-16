@@ -7,8 +7,6 @@ import android.service.notification.NotificationListenerService
 import android.service.notification.StatusBarNotification
 import android.util.Log
 import android.content.pm.ApplicationInfo
-import android.content.pm.PackageManager
-
 
 
 /**
@@ -16,7 +14,7 @@ import android.content.pm.PackageManager
  */
 class NotificationListener : NotificationListenerService() {
 
-    private val TAG = "NLService"
+    private val tag = "NLService"
 
     override fun onBind(intent: Intent?): IBinder {
         return super.onBind(intent)
@@ -25,12 +23,12 @@ class NotificationListener : NotificationListenerService() {
     override fun onNotificationPosted(sbn: StatusBarNotification?) {
         super.onNotificationPosted(sbn)
 
-        Log.i(TAG,"-----------------------\n" + sbn.toString())
-        Log.i(TAG,sbn?.packageName.toString())
-        Log.i(TAG,sbn?.notification.toString())
-        Log.i(TAG,sbn?.notification?.actions.toString())
+        Log.i(tag,"-----------------------\n" + sbn.toString())
+        Log.i(tag,sbn?.packageName.toString())
+        Log.i(tag,sbn?.notification.toString())
+        Log.i(tag,sbn?.notification?.actions.toString())
 
-        Log.i(TAG,sbn?.notification?.extras.toString())
+        Log.i(tag,sbn?.notification?.extras.toString())
         //Bundle[{
         // android.title=My notification,
         // android.subText=null,
@@ -45,20 +43,20 @@ class NotificationListener : NotificationListenerService() {
         // android.originatingUserId=0,
         // android.progressIndeterminate=false}]
 
-        Log.i(TAG,sbn?.notification?.tickerText.toString())
-        Log.i(TAG,sbn?.notification?.extras?.get(Notification.EXTRA_TITLE).toString())
+        Log.i(tag,sbn?.notification?.tickerText.toString())
+        Log.i(tag,sbn?.notification?.extras?.get(Notification.EXTRA_TITLE).toString())
 
         val pm = applicationContext.packageManager
         val ai: ApplicationInfo? = pm.getApplicationInfo(sbn?.packageName.toString(), 0)
 
         val applicationName = (pm?.getApplicationLabel(ai) ?: "(unknown)") as String
 
-        Log.i(TAG,"I think the application is " + applicationName)
+        Log.i(tag,"I think the application is " + applicationName)
     }
 
     override fun onNotificationRemoved(sbn: StatusBarNotification?) {
         super.onNotificationRemoved(sbn)
 
-        Log.i(TAG, sbn.toString())
+        Log.i(tag, sbn.toString())
     }
 }
